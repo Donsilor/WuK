@@ -1,0 +1,55 @@
+.logo{
+	width: 50%;
+	height: auto;
+	margin: 2rem auto;
+}
+.logo img{
+	width: 100%;
+	height: auto;
+}
+h3{
+	width: 100%;
+	height: 3.4rem;
+	line-height: 3.4rem;
+	font-size: 2.6rem;
+	font-weight: bold;
+	margin: 3rem auto 0;
+	letter-spacing: 0.3rem;
+	text-align: center;
+}
+p{
+	width: 100%;
+	font-size: 2.6rem;
+	text-align: center;
+	line-height: 4rem;
+	margin-top: 1rem;
+	letter-spacing: 0.3rem;
+}
+.tel{
+	width: 100%;
+	height: auto;
+	margin: 12rem auto;
+}
+.tel p{
+	font-size: 2.2rem;
+	margin: 0;
+}
+.relation{
+	width: 100%;
+	height: auto;
+	margin: 20rem auto;
+}
+a{
+	display: block;
+	width: 100%;
+	font-size: 2.2rem;
+	text-align: center;
+	letter-spacing: 4px;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:last-child{
+	background: url(../images/mine_02.png) no-repeat 50% 20%/26%;
+	color: #4382df;
+}

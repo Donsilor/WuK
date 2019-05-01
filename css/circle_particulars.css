@@ -1,0 +1,43 @@
+.circle_content{
+	width: 100%;
+}
+img{
+	width: 100%;
+	height: auto;
+}
+.circle_title h2{
+	width: 100%;
+	height: auto;
+	margin:  0 auto;
+	font-size: 3.2rem;
+	font-weight: normal;
+	padding-top: 2.2rem;
+	margin-bottom: 2rem;
+}
+.circle_title p{
+	width: 100%;
+	height: auto;
+	margin:  0 auto;
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	margin-bottom: 3rem;
+	letter-spacing: 0.2rem;
+	color: #333;
+}
+.circle_title p a{
+	color: #4382df;
+	padding: 0 2rem;
+}
+.actical_content{
+	font-size: 2.4rem;
+	letter-spacing: 0.2rem;
+	margin-top: 0.6rem;
+	word-break: break-word;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:nth-child(3){
+	background: url(../images/circle_02.png) no-repeat 50% 20%/32% 46%;
+	color: #4382df;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>推送设置</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/push_setting.css"/>
+	</head>
+	<body>
+		<div class="tit_box">
+			<div class="title">推送设置</div>
+		</div>
+		<a class="back" href="mine.html"></a>
+		<div class="setting">
+			<div>推送提醒
+				<div id = "pushadvice" class="fr">
+					<div></div>
+				</div>
+			</div>
+			<div>夜间免打扰（23:00-7:00）
+				<div id = "nodisturbing" class="fr">
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="remind.html">提醒</a>
+			<a href="add.html">管理</a>
+			<a href="circle.html">圈子</a>
+			<a class="backcolor" href="mine.html">我的</a>
+		</div>
+
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var pushadvice = Utils.URLParams.pushadvice,
+				nodisturbing = Utils.URLParams.nodisturbing,
+				method = 'GETURL';
+
+			$(function () {
+				if( pushadvice == 0 ){
+					$('#pushadvice').addClass('off');
+				}else{
+					$('#pushadvice').removeClass('off');
+				};
+
+				if( nodisturbing == 0 ){
+					$('#nodisturbing').addClass('off');
+				}else{
+					$('#nodisturbing').removeClass('off');
+				};
+
+				createDiv();
+				$('#pushadvice').click(function(){
+					if($(this).hasClass('off') == false ){
+						pushadvice = 0;
+					}else{
+						pushadvice = 1;
+					};
+
+					services.user.pushadvice({ pushadvice }, method).then(function (data) {
+						if (data.r != 1) {
+							$('.pop_wrap').css('display','block');
+							$('.quit').css('display','block');
+							$('.qu_title').text(JSON.stringify(data.msg));
+						};
+					});
+
+					if($(this).hasClass('off') == false ){
+						$('#pushadvice').addClass('off');
+					}else{
+						$('#pushadvice').removeClass('off');
+					};
+				});
+
+				$('#nodisturbing').click(function(){
+					if($(this).hasClass('off') == false ){
+						nodisturbing = 0;
+					}else{
+						nodisturbing = 1;
+					}
+
+					services.user.nodisturbing({ nodisturbing }, method).then(function (data) {
+						if (data.r != 1) {
+							$('.pop_wrap').css('display','block');
+							$('.quit').css('display','block');
+							$('.qu_title').text(JSON.stringify(data.msg));
+						};
+					});
+
+					if($(this).hasClass('off') == false ){
+						$(this).addClass('off');
+					}else{
+						$(this).removeClass('off');
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

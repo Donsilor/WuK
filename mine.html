@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mine.css"/>
+	</head>
+	<body>
+		<div class="tit_box">
+			<div class="title">我的</div>
+		</div>
+		<div class="content">
+			<div class="loading">
+				<div class="mask">
+					<img src="images/Loading1.gif"/>
+					<p>加载中...</p>
+				</div>
+			</div>
+		</div>
+	
+		<div class="footer">
+			<a href="remind.html">提醒</a>
+			<a href="add.html">管理</a>
+			<a href="circle.html">圈子</a>
+			<a class="backcolor" href="mine.html">我的</a>
+		</div>
+		
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			var method = 'GETURL';
+			services.user.get({ }, method).then(function (data) {
+				if (data.r == 1) {
+					$(".content").append(`
+						<div class="top">
+							<div>
+								<div class="user_img"><img src="images/people.png"/></div>
+								<p>${data.obj.mobile}</p>
+								<p>${(function(type){
+										if ( type == 'free' ){
+											return '免费用户';
+										} else {
+											return 'VIP用户';
+										};
+								})(data.obj.type)}</p>
+							</div>
+						</div>
+						<ul>
+							<li><a href="top_up.html">升级vip（全功能版）</a></li>
+							<li>有效期：${(function(expiredate){
+										if ( expiredate == null ){
+											return '';
+										} else {
+											return expiredate;
+										};
+								})(data.obj.expiredate)}
+								</li> 
+							<li><a href="push_setting.html?pushadvice=${data.obj.pushadvice}&nodisturbing=${data.obj.nodisturbing}">推送设置</a></li>
+							<li><a href="password.html">修改密码</a></li>
+							<li><a href="about_us.html">关于我们</a></li>
+							<li class = "exit"><a href="javascript:void(0);">退出登录</a></li>
+						</ul>
+					`);  //有效期：${Utils.dateFormat(new Date(data.obj.expiredate), 'yyyy-MM-dd')} <p>${data.obj.type.replace('free', '免费用户')}</p>
+				
+					$('li.exit').click(function(){
+						createDiv();
+						var span = document.createElement('span');
+							span.className = 'x';
+							span.innerText = 'x';
+							childDiv1.appendChild(span);
+					
+						$('.pop_wrap').css('display','block');
+						$('.quit').css('display','block');
+						$('.qu_title').text('确认要退出嘛？');
+						$('.affirm').click(function(){
+							window.location.pathname = 'WuK/login.html';
+						})
+						$('span.x').click(function(){
+							$('.pop_wrap').css('display','none');
+							$('.quit').css('display','none');
+						})
+					})
+				} else {
+					console.log(data.error);
+				};
+			});
+		})
+	</Script>
+
+	</body>
+</html>

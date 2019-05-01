@@ -1,0 +1,51 @@
+.box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-image: url(../images/top_backg.png), url(../images/bottom_backg.png), url(../images/midd_backg.png);
+	background-repeat: no-repeat, no-repeat ,no-repeat;
+	background-position: 0 0, left bottom, center center;
+	background-size: 100%, 100%, 80%;
+	background-color: #fff;
+}
+.box .logo{
+	top: 22%;
+	width: 46%;
+	height: 12rem;
+}
+.box .logo img{
+	width: 100%;
+}
+.mind{
+	width: 9%;
+	height: 30rem;
+	top: 45%;
+	word-break: break-word;
+	font-size: 3.6rem;
+	text-align: center;
+	letter-spacing: 0.3rem;
+}
+.login{
+	top: 80%;
+	width: 60%;
+	height: 6rem;
+	border-radius: 0.8rem;
+	line-height: 6rem;
+	text-align: center;
+	/*padding-left: 5rem;*/
+	/*background: url(../images/Wechat.png) 24% center no-repeat;*/
+	box-sizing: border-box;
+	font-size: 2.4rem;
+	letter-spacing: 0.3rem;
+	color: #fff;
+	background-color: #4382df;
+	border-radius: 3rem;
+}
+a.register{
+	top: 86%;
+	font-size: 2.6rem;
+	letter-spacing: 0.2rem;
+	text-decoration: underline;
+}

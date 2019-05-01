@@ -1,0 +1,47 @@
+.pic_box{
+	width: 100%;
+	margin: 1rem 0;
+}
+.pic_box img{
+	width: 100%;
+	height: auto;
+}
+.pay{
+	width: 100%;
+	height: auto;
+}
+.pay h3{
+	width: 100%;
+	height: 3.4rem;
+	line-height: 3.4rem;
+	font-size: 2.8rem;
+	font-weight: normal;
+	border-left: 0.6rem solid #4382df;
+	margin: 3rem 0 1.5rem;
+	padding-left: 1.4rem;
+	letter-spacing: 0.2rem;
+}
+.pay p{
+	width: 91%;
+	font-size: 2.2rem;
+	margin: 0 auto;
+	line-height: 3rem;
+	letter-spacing: 0.1rem;
+	padding: 0.5rem 0;
+}
+.pay p.width{
+	width: 100%;
+	margin-top: 1rem;
+}
+.pay p.red{
+	font-size: 3rem;
+	line-height: 4rem;
+	color: #f00;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:last-child{
+	background: url(../images/mine_02.png) no-repeat 50% 20%/26%;
+	color: #4382df;
+}

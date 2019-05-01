@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>圈子</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" href="css/circle.css" />
+</head>
+
+<body>
+	<div class="tit_box">
+		<div class="title">圈子</div>
+	</div>
+	<div class="content">
+		<div class="loading">
+			<div class="mask">
+				<img src="images/Loading1.gif"/>
+				<p>加载中...</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="remind.html">提醒</a>
+		<a href="add.html">管理</a>
+		<a class="backcolor" href="circle.html">圈子</a>
+		<a href="mine.html">我的</a>
+	</div>
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/dropload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			var cursor = 0,
+				count = 5,
+				total = 0;
+				method = 'GETURL';
+
+			var dropload = $('.content').dropload({
+				scrollArea: window,
+				loadDownFn: function (me) {
+					if (cursor - total >= 5) {
+						return;
+					};
+
+					services.article.list({ cursor, count }, method).then(function (data) {
+						if (data.r == 1) {
+							total = data.total;
+							if ( total == 0 ){
+								$('.dropload-down').remove();
+								// me.resetload();
+								return;
+							};
+							if (cursor - total >= 0) {
+                                $('.dropload-down').remove();
+                                return;
+                            };
+
+							// 这里是取出 data.list 的每一个key
+							for (let item in data.list) {
+								// 通过 key 获取对象的每个值 value
+								let obj = data.list[item];
+
+								$(".content").append(`
+									<div class="circle_content">
+										<div class="date">${Utils.dateFormat(new Date(obj.ctime), 'yyyy年MM月dd日&nbsp;星期ddd&nbsp;HH:mm')}</div>
+										<img src="${obj.img}"/>
+										<div class="circle_title">
+											<h2><a href="circle_particulars.html?id=${obj.id}">${obj.title}</a></h2>
+											<p>${obj.subtitle}</p>
+										</div>
+									</div>
+								`);
+							}
+
+							cursor = cursor + 5;
+							me.resetload();
+						} else {
+							console.log(JSON.stringify(data.error));
+							me.resetload();
+						};
+					}).catch(e => {
+						console.log(e);
+						me.resetload();
+					});
+
+					$('.dropload-down').remove();
+				}
+			});
+		});
+	</script>
+
+</body>
+
+</html>

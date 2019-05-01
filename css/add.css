@@ -1,0 +1,103 @@
+body{
+	width: 100%;
+}
+.flex{
+	height: 8rem;
+	width: 100%;
+	background-color: #4382df;
+	color: #fff;
+	font-size: 2.6rem;
+	line-height: 7rem;
+	margin-top: -0.5rem;
+}
+.flex li{
+	width: 15%;
+	text-align: center;
+	height: 6.6rem;
+	margin-top: 0.5rem;
+}
+.underline{
+	border-bottom: 0.4rem solid #fff;
+}
+.search-box{
+	position: relative;
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+}
+.search-box .search{
+	width: 94%;
+	height: 5rem;
+	margin: 2rem;
+	padding-left: 3rem;
+	padding-right: 4rem;
+	box-sizing: border-box;
+	font-size: 2.2rem;
+	border: 0.1rem solid #e6e6e6;
+	border-radius: 0.7rem;
+	/*background:#fff url(../images/search.png) no-repeat 95%/6%;*/
+}
+.search-box img{
+	position: absolute;
+	right: 3%;
+	top: 3rem;
+	height: 3rem;
+	width: 3rem;
+	padding: 0 1rem;
+}
+
+.content{
+	width: 100%;
+	height: auto;
+	margin-top: 22.5rem;
+}
+
+.add_money{
+	width: 94%;
+	height: auto;
+	margin: 0 auto;
+	padding: 0 3rem;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: 0.1rem solid #e6e6e6;
+}
+.add_money li{
+	height: 9rem;
+	width: 100%;
+}
+.add_money li:not(:last-child){
+	border-bottom: 0.2rem solid #dcdcdc;
+}
+.add_money li .fl div:first-child{
+	font-size: 2.4rem;
+	padding-top: 1.2rem;
+}
+.add_money li .fl div:last-child{
+	font-size: 2rem;
+	padding-top: 0.4rem;
+}
+.add_money li .fr{
+	width: 6rem;
+	height: 6rem;
+	margin-top: 2rem;
+	font-size: 5rem;
+	background: url(../images/rem_01.png) no-repeat right/60%;
+}
+.frblue{
+	background-image: url(../images/rem_02.png) !important;
+}
+/* .add_money li:nth-child(3) .fr,
+.add_money li:nth-child(4) .fr,
+.add_money li:nth-child(6) .fr{
+	color:#6b6b6b;
+	border-color: #6b6b6b;
+} */
+
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:nth-child(2){
+	background: url(../images/manage_02.png) no-repeat 50% 20%/30%;
+	color: #4382df;
+}

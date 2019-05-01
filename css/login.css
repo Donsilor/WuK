@@ -1,0 +1,63 @@
+.box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+}
+.logo{
+	top: 17%;
+	max-height: 18rem;
+	width: 30rem;
+}
+.logo img{
+	width: 100%;
+}
+.user_box{
+	top: 42%;
+	height: 16rem;
+	width: 94%;
+	border-radius: 0.6rem;
+	/*border: 0.2rem solid #dcdcdc;*/
+	padding: 0 2.6rem;
+	box-sizing: border-box;
+}
+.user_box div{
+	width: 100%;
+	height: 8rem;
+	padding-left: 9rem;
+	box-sizing: border-box;
+	border-bottom: 0.2rem solid #dcdcdc;
+}
+.user_box div input{
+	width: 80%;
+	height: 7.6rem;
+	font-size: 3rem;
+	letter-spacing: 0.1rem;
+}
+.user_box div:first-child{
+	background: url(../images/user.png) no-repeat 4% 50% /7%;
+}
+.user_box div:last-child{
+	background: url(../images/pass.png) no-repeat 4% 50% /7%;
+}
+.btn{
+	top: 62%;
+	height: 7rem;
+	width: 86%;
+	border-radius: 0.8rem;
+	background-color: #4382df;
+	text-align: center;
+	line-height: 6.8rem;
+	font-size: 4rem;
+	letter-spacing: 0.5rem;
+	color: #fff;
+}
+.find_password{
+	top: 72%;
+	height: 3.8rem;
+	width: 86%;
+	font-size: 2.8rem;
+	letter-spacing: 0.1rem;
+}

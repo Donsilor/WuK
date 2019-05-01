@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>提醒</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/remind.css" />
+</head>
+
+<body>
+	<div class="tit_box">
+		<div class="title">提醒</div>
+	</div>
+	
+	<div class="content"></div>
+
+	<div class="loading">
+		<div class="mask">
+			<img src="images/Loading1.gif"/>
+			<p>加载中...</p>
+		</div>
+	</div>
+
+	<div class="btn"><a href="add.html"><span>+</span>添加币种</a></div>
+	
+	<div class="footer">
+		<a class="backcolor" href="remind.html">提醒</a>
+		<a href="add.html">管理</a>
+		<a href="circle.html">圈子</a>
+		<a href="mine.html">我的</a>
+	</div>
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/dropload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			var cursor = 0,
+				count = 10,
+				total = 0;
+			method = 'GETURL';
+
+			var dropload = $('.content').dropload({
+				scrollArea: window,
+				loadDownFn: function (me) {
+					if (cursor - total >= 10) {
+						return;
+					};
+
+					services.advice({ cursor, count }, method).then(function (data) {
+						if (data.r == 1) {
+							total = data.total;
+							if ( total == 0 ){
+								$('.dropload-down').remove();
+								// me.resetload();
+								return;
+							};
+							if (cursor - total >= 0) {
+                                $('.dropload-down').remove();
+                                return;
+                            };
+
+							// 这里是取出 data.list 的每一个key
+							for (let time in data.list) {
+								// 通过 key 获取对象的每个值 value
+								let obj = data.list[time];
+
+								$(".content").append(`
+								 <div>
+									<div class="date">${(function(DateTime){
+										var date1 = Utils.dateFormat(new Date(), 'yyyy-MM-dd');
+										if ( date1 == DateTime ){
+											return '今日';
+										} else {
+											return Utils.dateFormat(new Date(time), 'yyyy');
+										};
+									})(time)}
+										<span class="today">
+											${Utils.dateFormat(new Date(time), 'MM-dd')}&nbsp;&nbsp;
+											${Utils.dateFormat(new Date(time), '星期ddd')}
+										</span>
+									</div>
+									<ul class="market"> 
+										${obj.map(o => {
+										return `
+											<li>
+												<div class="time">${Utils.dateFormat(new Date(time + ' ' + o.time), 'HH:mm')}</div>
+												<div class="money_name">
+													<div>${o.symbol}</div>
+													<div>${o.exchange}</div>
+												</div>
+												<div class="market" style="color: ${o.color};">
+													<div>${o.signal_desc}</div>
+													<div>提醒价<span>${o.price}</span>USDT</div>
+												</div>
+											</li>
+											`;
+									}).join("\n")}
+									</ul>
+								  </div>
+							`);
+							};
+							
+							cursor = cursor + 10;
+							me.resetload();
+						} else {
+							console.log(JSON.stringify(data.error));
+							me.resetload();
+						};
+					}).catch(e => {
+						console.log(e);
+						me.resetload();
+					});
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

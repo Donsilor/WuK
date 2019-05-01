@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>添加币种</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/add.css" />
+</head>
+
+<body>
+	<div class="tit_box">
+		<div class="title">添加币种</div>
+		<ul class="flex" id="flex">
+			<li data-type="0" class="underline">全部</li>
+			<li data-type="1">Okcoin</li>
+			<li data-type="2">币安</li>
+			<li data-type="3">火币</li>
+			<li data-type="4">已添加</li>
+		</ul>
+		<div class="search-box">
+			<input type="text" name="" class="search" placeholder="搜索" />
+			<img id="searchBtn" src="images/search.png" />			
+		</div>
+	</div>
+
+	<div class="content">
+		<ul class="add_money"></ul>
+	</div>
+
+	<div class="loading">
+		<div class="mask">
+			<img src="images/Loading1.gif"/>
+			<p>加载中...</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="remind.html">提醒</a>
+		<a class="backcolor" href="add.html">管理</a>
+		<a href="circle.html">圈子</a>
+		<a href="mine.html">我的</a>
+	</div>
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/dropload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/add.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

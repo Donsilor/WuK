@@ -1,0 +1,111 @@
+.content {
+	margin-bottom: 25rem;
+}
+/* .wrap{
+	position: absolute;
+	top: 0;
+	left: 3%;
+	width: 94%;
+	height: 74%;
+	overflow: auto;
+	margin-top: 5rem;
+} */
+.date {
+	margin: 3.2rem 3% 1.5rem;
+	font-size: 2.2rem;
+}
+.date span {
+	padding-left: 0.6rem;
+}
+.market {
+	width: 100%;
+}
+.market li {
+	width: 100%;
+	height: 10rem;
+	margin-bottom: 2rem;
+	border: 0.1rem solid #e6e6e6;
+	background-color: #fff;
+	font-size: 0;
+	box-shadow: 0.2rem 0.3rem #e7e7e7, 0.4rem 0.5rem #ededed;
+}
+.market li:last-child {
+	/*margin-bottom: 0;*/
+}
+.market li>div {
+	display: inline-block;
+	vertical-align: middle;
+	height: 10rem;
+	padding-top: 1rem;
+}
+.market li>div:first-child {
+	width: 24%;
+	font-size: 2.2rem;
+	text-align: center;
+	line-height: 8rem;
+	letter-spacing: 0.2rem;
+}
+.market li>div:nth-child(2) {
+	width: 28%;
+}
+.market li>div:nth-child(2) div:first-child {
+	font-size: 2.4rem;
+	/*font-weight: bold;*/
+	margin: 0.8rem 0;
+}
+.market li>div:nth-child(2) div:last-child {
+	font-size: 2rem;
+	color: #424242;
+}
+.market li>div:last-child {
+	width: 48%;
+}
+.market li>div:last-child div:first-child {
+	margin: 0.8rem 0;
+	/* color: #f64f4f; */
+	font-size: 2.6rem;
+}
+.market li>div:last-child div:last-child {
+	color: #6b6b6b;
+	font-size: 2rem;
+}
+/* .market li:nth-child(2)>div:last-child div:first-child,
+.market li:nth-child(5)>div:last-child div:first-child,
+.market li:nth-child(6)>div:last-child div:first-child{
+	color: #03bf85;
+} */
+.market li>div:last-child div:last-child span {
+	color: #000;
+	padding: 0 0.4rem;
+}
+.btn {
+	height: 12rem;
+	width: 100%;
+	background-color: #f9f9f9;
+	position: fixed;
+	left: 0;
+	bottom: 9%;
+}
+
+.btn a {
+	display: block;
+	height: 7rem;
+	width: 50%;
+	margin: 2.5rem auto;
+	background-color: #4382df;
+	border-radius: 0.8rem;
+	color: #fff;
+	text-align: center;
+	line-height: 6.8rem;
+	font-size: 3.2rem;
+	letter-spacing: 0.1rem;
+}
+
+.btn span {
+	vertical-align: -18%;
+	font-size: 6.8rem;
+	padding: 0 0.3rem;
+}
+.footer a:first-child{
+	color: #4382df;
+}

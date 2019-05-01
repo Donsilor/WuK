@@ -1,0 +1,53 @@
+.setting{
+	width: 94%;
+	height: 16rem;
+	background-color: #fff;
+	margin-top: 6rem;
+	border-radius: 0.7rem;
+	border: 0.2rem solid #e6e6e6;
+	color: #6b6b6b;
+}
+.setting>div{
+	height: 8rem;
+	width: 90%;
+	margin: 0 auto;
+	font-size: 2.6rem;
+	letter-spacing: 0.2rem;
+	line-height: 7.8rem;
+}
+.setting>div .fr{
+	width: 5rem;
+	height: 3rem;
+	margin-top: 2rem;
+	border-radius: 3rem;
+	border:0.2rem solid transparent;
+	box-sizing: border-box;
+	background-color: #4382df;
+	position: relative;
+}
+.setting>div .off{
+	background-color: #e2e2e2;
+}
+.setting>div .fr div{
+	position: absolute;
+	top: 0;
+	right: 0.1rem;
+	height: 2.6rem;
+	width: 2.6rem;
+	background-color: #e2e2e2;
+	border-radius: 50%;
+}
+.setting>div .off div{
+	background-color: #86898d;
+	right: 1.9rem;	
+}
+.setting>div:first-child{
+	border-bottom: 0.3rem solid #dcdcdc;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:last-child{
+	background: url(../images/mine_02.png) no-repeat 50% 20%/26%;
+	color: #4382df;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>圈子内容页</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/circle_particulars.css" />
+</head>
+
+<body>	
+	<div class="tit_box">
+		<div class="title">圈子</div>
+	</div>
+	<a class="back" href="circle.html"></a>
+	<div class="circle_content">
+		<div class="loading">
+			<div class="mask">
+				<img src="images/Loading1.gif"/>
+				<p>加载中...</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="remind.html">提醒</a>
+		<a href="add.html">管理</a>
+		<a class="backcolor" href="circle.html">圈子</a>
+		<a href="mine.html">我的</a>
+	</div>
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			var id = Utils.URLParams.id,
+				method = 'GETURL';
+			services.article.get({ id }, method).then(function (data) {
+				if (data.r == 1) {
+					$(".circle_content").append(`
+						<div class="circle_title">
+							<h2>${data.obj.title}</h2>
+							<p>原创：${$.trim(data.obj.author)}
+								<a href="#">悟空看盘机器人</a>${Utils.dateFormat(new Date(data.obj.ctime), 'MM-dd')}</p>
+							<p>${data.obj.subtitle}</p>
+						</div>
+						<img src="${data.obj.img}" />
+						<p class="actical_content">${data.obj.text}</p>
+					`);
+				} else {
+					console.log(JSON.stringify(data.error));
+				};
+			});
+		})
+	</script>
+
+</body>
+
+</html>

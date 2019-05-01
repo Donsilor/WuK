@@ -1,0 +1,53 @@
+.content{
+	margin-top: 8rem;
+}
+.circle_content{
+	width: 100%;
+}
+.date{
+	width: 60%;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	background-color: #e9e9e9;
+	border-radius: 0.5rem;
+	margin: 3rem auto;
+	font-size: 2.4rem;
+}
+img{
+	width: 100%;
+	height: auto;
+}
+.circle_title{
+	height: auto;
+	border: 0.2rem solid #e0e0e0;				
+}
+h2{
+	width: 90%;
+	height: auto;
+	margin:  0 auto;
+	font-size: 3.2rem;
+	font-weight: normal;
+	padding-top: 2.2rem;
+	margin-bottom: 2rem;
+}
+h2 a{
+	color: inherit;
+}
+p{
+	width: 90%;
+	height: auto;
+	margin:  0 auto;
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	margin-bottom: 3rem;
+	letter-spacing: 0.2rem;
+	color: #333;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:nth-child(3){
+	background: url(../images/circle_02.png) no-repeat 50% 20%/32% 46%;
+	color: #4382df;
+}

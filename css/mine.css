@@ -1,0 +1,126 @@
+body{
+	width: 100%;
+}
+.content{
+	margin-top: 6.8rem;
+}
+.top{
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 18rem;
+	background-color: #4382df;
+	margin: 0 auto;
+}
+.top div{
+	width: 80%;
+	height: 24rem;
+	border: 0.1rem solid #e6e6e6;
+	background-color: #fff;
+	border-radius: 0.8rem;
+	position: absolute;
+	top: 9rem;
+	left:10%;
+	text-align: center;
+}
+.top .user_img{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 15rem;
+	height: 15rem;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background-color: transparent;
+	border: 0.3rem solid transparent;
+	overflow: hidden;
+}
+.top img{
+	height: 100%;
+}
+.top p{
+	line-height: 5rem;
+	font-size: 3rem;
+}
+.top p:first-of-type{
+	margin-top: 9rem;
+}
+ul{
+	width: 94%;
+	background-color: #fff;
+	margin: 20rem auto 0 auto;
+	border: 0.1rem solid #e6e6e6;
+}
+ul li{
+	height: 7.8rem;
+	width: 88%;
+	margin: 0 auto;
+	line-height: 7.6rem;
+	font-size: 2.2rem;
+	padding-left: 6rem;
+	box-sizing: border-box;
+	color: #6b6b6b;
+}
+ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+ul li:not(:last-child){
+	border-bottom: 0.2rem solid #dcdcdc;
+}
+li:first-child{
+	background-image: url(../images/top_up.png), url(../images/back.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+	background-size: 7%, 3%;
+}
+li:nth-child(2){
+	background: url(../images/period.png) no-repeat left/7%;
+}
+li:nth-child(3){
+	background-image: url(../images/push_set.png), url(../images/back.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+	background-size: 7%, 3%;
+}
+li:nth-child(4){
+	background-image: url(../images/modification.png), url(../images/back.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+	background-size: 7%, 3%;
+}
+li:nth-child(5){
+	background-image: url(../images/about.png), url(../images/back.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+	background-size: 7%, 3%;
+}
+li:nth-child(6){
+	background-image: url(../images/quit.png);
+	background-repeat: no-repeat;
+	background-position: -3px;
+	background-size: 8%;
+}
+span.x{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 36px;
+	border: 3px solid #f00;
+	background-color: #fff;
+	font-size: 46px;
+	color: #red;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.footer a:first-child{
+	background: url(../images/remind_01.png) no-repeat 50% 20%/30%;
+}
+.footer a:last-child{
+	background: url(../images/mine_02.png) no-repeat 50% 20%/26%;
+	color: #4382df;
+}

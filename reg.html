@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/reg.css" />
+</head>
+
+<body>
+	<div class="box">
+		<div class="tit_box">
+			<div class="title">注册账号</div>
+		</div>
+		<a class="back" href="login.html"></a>
+		<ul class="user_box middle">
+			<li>
+				<input type="text" placeholder="用户名" name="user" />
+			</li>
+			<li>
+				<input type="password" placeholder="密码" name="password" />
+			</li>
+			<li>
+				<input type="password" placeholder="确认密码" name="sure" />
+			</li>
+			<li>
+				<input type="text" placeholder="输入手机号" name="phone" />
+			</li>
+			<li>
+				<input class="fl" type="text" placeholder="输入验证码" name="verify" />
+				<div class="fr">
+					<img id="picture" src="http://45.77.220.216/verifycode/create" />
+				</div>
+			</li>
+			<li>
+				<input class="fl" type="password" placeholder="输入短信验证码" name="verify2" />
+				<div id="GetVcode" class="fr">获取验证码</div>
+			</li>
+		</ul>
+		<div class="btn middle" id="SubmitBtn">完成</div>
+		<!--<div class="go middle">
+				已有账号，去<a href="login.html">登录</a>
+			</div>-->
+	</div>
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#picture').click(function () {
+				$('#picture').attr('src', 'http://45.77.220.216/verifycode/create');
+			});
+
+			function GetMcode() {
+				createDiv();
+				if ($('input')[3].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入手机号码！');
+					$('input')[3].focus();
+					return;
+				}
+
+				if ($('input')[4].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入图形验证码！');
+					$('input')[4].focus();
+					return;
+				};
+				$("#GetVcode").unbind('click');
+				$("#GetVcode").text('发送中...');
+
+				var vcode = $('input')[4].value,
+					mobile = $('input')[3].value;
+				services.reg.getmcode({ vcode, mobile }).then(function (data) {
+					if (data.r != 1) {
+						$('.pop_wrap').css('display','block');
+        				$('.quit').css('display','block');
+        				$('.qu_title').text(data.error.vcode);
+        				return;
+					};
+
+					$("#GetVcode").text('获取验证码');
+					$("#GetVcode").bind('click', function () {
+						GetMcode();
+					});
+				});
+			}
+			//  点击获取验证码
+			$('#GetVcode').click(function () {
+				GetMcode();
+			});
+
+			$('#SubmitBtn').click(function () {
+				createDiv();
+				if ($('input')[0].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入用户名！');
+     				return;
+				}
+
+				if ($('input')[1].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入密码！');
+     				return;
+				}
+
+				if ($('input')[2].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入密码！');
+					return;
+				}
+
+				if ($('input')[3].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入手机号码！');
+					return;
+				}
+
+				if ($('input')[4].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入图形验证码！');
+					return;
+				}
+
+				if ($('input')[5].value == '') {
+					$('.pop_wrap').css('display','block');
+					$('.quit').css('display','block');
+					$('.qu_title').text('请输入短信验证码！');
+					return;
+				}
+				
+				var mobile = $('input')[3].value,
+					password = $('input')[1].value,
+					password2 = $('input')[2].value,
+					mcode = $('input')[5].value;
+				services.reg.reg({ mobile, password, password2, mcode }).then(function (data) {
+					if (data.r == 1) {
+						$('.pop_wrap').css('display','block');
+        				$('.quit').css('display','block');
+						$('.qu_title').text('注册成功，请登录！');
+						closes(800);
+						location.href = "login.html";
+					} else {
+						$('.pop_wrap').css('display','block');
+        				$('.quit').css('display','block');
+        				$('.qu_title').text(JSON.stringify(data.error));
+					}
+				});
+			})
+		})
+	</script>
+</body>
+
+</html>

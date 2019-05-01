@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>登陆</title>
+  <link rel="stylesheet" type="text/css" href="css/common.css" />
+  <link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+<style type="text/css">
+</style>
+<body>
+  <div class="box">
+    <div class="logo middle">
+      <img src="images/logo_blue.png" />
+    </div>
+    <div class="user_box middle">
+      <div>
+        <input type="text" placeholder="手机号码" name="mobile" />
+      </div>
+      <div>
+        <input type="password" placeholder="密码" name="password" />
+      </div>
+    </div>
+    <div class="btn middle" id="btn">登录</div>
+    <div class="find_password middle">
+      <a class="fl" href="find.html">忘记密码</a>
+      <a class="fr" href="reg.html">立即注册</a>
+    </div>
+  </div>
+
+  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#btn').click(function (){
+      	createDiv();
+        if( $('input')[0].value == '' ){
+          $('.pop_wrap').css('display','block');
+          $('.quit').css('display','block');
+          $('.qu_title').text('请输入正确的手机号！');
+					return;
+        }else if( $('input')[1].value == '' ){
+					$('.pop_wrap').css('display','block');
+          $('.quit').css('display','block');
+          $('.qu_title').text('请输入正确密码！');
+					return;
+        };
+        
+        var mobile = $('input')[0].value;
+        var password = $('input')[1].value;
+        var method = 'GETURL';
+        var pushregid = '';
+
+        services.login({  mobile, password }).then(function(data){
+          if(data.r == 1){
+            services.user.hasregid({}, "GET").then(function({data}){
+              console.log(`services.user.hasregid() -> ${JSON.stringify(data)}`);
+              if (+data.hasregid == 0){
+                pushregid = MrLiAndroidJs.getRegistrationID();
+                console.log(`MrLiAndroidJs.getRegistrationID -> ${pushregid}`)
+                services.user.pushregid({ pushregid }, method).then(function(data){
+                  location.href = "remind.html";
+                });
+              }
+              else location.href = "remind.html";
+            });
+          }else{
+          	$('.pop_wrap').css('display','block');
+        		$('.quit').css('display','block');
+        		$('.qu_title').text(JSON.stringify(data.error.login));
+          }
+        });
+        
+        
+      })
+    })
+  </script>
+</body>
+
+</html>
